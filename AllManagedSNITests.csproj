@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <StartupObject>AllManagedSNITests.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="reports\**" />
+    <Compile Remove="scripts\**" />
+    <EmbeddedResource Remove="reports\**" />
+    <EmbeddedResource Remove="scripts\**" />
+    <None Remove="reports\**" />
+    <None Remove="scripts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="659.trc" />
+    <None Remove="659_2.trc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--<ProjectReference Include="..\..\src\Microsoft.Data.SqlClient\netcore\src\Microsoft.Data.SqlClient.csproj" />-->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="InsertSP.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
